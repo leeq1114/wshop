@@ -5,6 +5,17 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+// totol insert
+// import Vant from 'vant'
+// import 'vant/lib/index.css'
+
+// Vue.use(Vant);
+
+import { Button } from 'vant';
+
+Vue.use(Button)
+
+
 new Vue({
   router,
   store,
