@@ -11,10 +11,9 @@ Vue.config.productionTip = false
 
 // Vue.use(Vant);
 
-import { Button } from 'vant';
+import { Button,Icon,NavBar,Tabbar,TabbarItem,Swipe,SwipeItem,Lazyload } from 'vant';
 
-Vue.use(Button)
-
+Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload);
 
 new Vue({
   router,
