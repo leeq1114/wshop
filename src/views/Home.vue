@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <van-nav-bar title="首页" class="nav-title">
       <template #left>
         <van-icon name="search"/>
@@ -33,13 +33,26 @@
        </swiper>
     </div>
 
+    <!-- 推荐商品 -->
+    <div class="variety">
+      <p class="variety-title">推荐商品</p>
+      <ul>
+        <li class="variety-item" v-for=" (item, index) in varietyProducts" :key="index">
+          <img :src="item.img" alt="">
+          <div>{{ item.name }}</div>
+          <div>¥{{ item.price }}</div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
-SS
+
 <script>
 import 'swiper/swiper.scss'
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import axios from 'axios'
+import url from '@/service.config.js'
 
 export default { 
   data(){
@@ -87,7 +100,36 @@ export default {
       ],
       swiperOption: {
         slidesPerView: 3
-      }
+      },
+      varietyProducts:[ // 推荐商品
+        {
+          name : "手推车1",
+          img : "http://www.nongji1688.com/file/upload/202001/15/0915163450801.jpg",
+          price : "13260",
+          company : "曲阜市机械制造有限公司",
+          city : "曲阜市"
+        },
+        {
+          name : "手推车2",
+          img : "http://www.nongji1688.com/file/upload/202001/15/0915163450801.jpg",
+          price : "23260",
+          company : "曲阜市机械制造有限公司",
+          city : "曲阜市"
+        },
+        {
+          name : "手推车3",
+          img : "http://www.nongji1688.com/file/upload/202001/15/0915163450801.jpg",
+          price : "33260",
+          company : "曲阜市机械制造有限公司",
+          city : "曲阜市"
+        },{
+          name : "手推车4",
+          img : "http://www.nongji1688.com/file/upload/202001/15/0915163450801.jpg",
+          price : "43260",
+          company : "曲阜市机械制造有限公司",
+          city : "曲阜市"
+        }
+      ],
     }
   },
   components: {
@@ -96,13 +138,36 @@ export default {
   },
   directives: {
     swiper: directive
+  },
+
+  created() {
+
+    // let url2 = 'http://www.google.com/getVariety';
+    let url2 = url.getVarietyItem;
+    axios.get(url2).then(res=>{
+      console.log(res);
+    });
   }
 }
 </script>
 
 
 <style lang="scss">
+
+.container{
+  background-color: #eeeeee;
+}
+
+.nav-title{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999!important;
+}
+
 .carousel{
+  margin-top: 2rem;
   height: 10rem;
   &-item{
     img{
@@ -112,7 +177,10 @@ export default {
   }
 }
 
+// 热门商品
 .hot{
+  margin-top: 1rem;
+  background-color: #ffffff;
   &-title{
     width: 100%;
     height : 1rem;
@@ -130,6 +198,26 @@ export default {
       }
     }
     
+  }
+}
+
+// 推荐商品
+.variety{
+  margin-top: 0.2rem;
+  background-color: #ffffff;
+  text-align: center;
+  margin-bottom: 4rem;
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  &-item{
+    flex-basis: 45%;
+    img{
+      width: 5rem;
+      height: 5rem;
+    }
   }
 }
 </style>
