@@ -5,7 +5,8 @@
         <van-icon name="search"/>
       </template>
       <template #right>
-        <van-icon name="cart"/>
+        <van-icon v-if="userInfo.userName === '未登录'" @click="$router.push('/profile')">{{userInfo.userName}}</van-icon>
+        <van-icon v-else @click="$router.push('/profile_loginOK')">{{userInfo.userName}}</van-icon>
       </template>
 
     </van-nav-bar>
@@ -53,6 +54,7 @@ import 'swiper/swiper.scss'
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import axios from 'axios'
 import url from '@/service.config.js'
+import { mapState } from 'vuex'
 
 export default { 
   data(){
@@ -147,6 +149,9 @@ export default {
     axios.get(url2).then(res=>{
       console.log(res);
     });
+  },
+  computed: {
+    ...mapState(['userInfo'])
   }
 }
 </script>

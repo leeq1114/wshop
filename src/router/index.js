@@ -5,6 +5,7 @@ import Category from '../views/Category.vue'
 import Cart from '../views/Cart.vue'
 import Profile from '../views/Profile.vue'
 import Ajax from '../views/Ajax.vue'
+import Profile_loginOK from '../views/Profile_loginOK.vue'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,11 @@ Vue.use(VueRouter)
     path: '/ajax',
     name: 'ajax',
     component: Ajax
+  },
+  {
+    path: '/profile_loginOK',
+    name: 'profile_loginOK',
+    component: Profile_loginOK
   }
 ]
 

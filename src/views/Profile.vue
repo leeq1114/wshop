@@ -7,7 +7,7 @@
           <van-field v-model="loginPassword" type="password" label="密码：" required clearable placeholder="请输入密码" />
         </van-cell-group>
         <div>
-          <van-button type="primary" size="large">登录</van-button>
+          <van-button @click="loginHandler" type="primary" size="large">登录</van-button>
         </div>
       </van-tab>
       <van-tab title="注册">
@@ -29,6 +29,7 @@
 
 import axios from 'axios';
 import url from '@/service.config.js';
+import { mapActions } from 'vuex';
 
 export default {
   data() {
@@ -41,6 +42,7 @@ export default {
     };
   },
   methods:{
+    ...mapActions(['loginAction']),
     // regist処理
     registHandler(){
       axios({
@@ -61,6 +63,32 @@ export default {
       }).catch(err=>{
         console.log(err);
         this.$toast.fail('注册失败');
+      });
+    },
+    // login処理
+    loginHandler(){
+      axios({
+        url : url.loginUser,
+        method : 'post',
+        data : {
+          userName : this.loginUsername,
+          password : this.loginPassword
+        }
+      }).then(res=>{
+        // console.log(res);
+        if (res.data.code == 200) {
+          this.$toast.success(res.data.message);
+          this.loginPassword = this.loginUsername = '';
+          // 保存登录状态
+          console.log(res.data.userInfo.name);
+          this.loginAction(res.data.userInfo.name);
+          this.$router.push("/");
+        } else {
+          this.$toast.fail(res.data.message);
+        }
+      }).catch(err=>{
+        console.log(err);
+        this.$toast.fail('登录失败');
       });
     }
   }

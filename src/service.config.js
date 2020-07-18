@@ -4,7 +4,8 @@ const REALURL = 'http://localhost:3000/';
 const URL = {
     getVarietyItem: MOCKURL + 'getVarietyItem',
     getHotProduct: MOCKURL + 'getHotProduct',
-    registUser: REALURL + 'user/registUser'
+    registUser: REALURL + 'user/registUser',
+    loginUser: REALURL + 'user/loginUser'
 };
 
 export default URL;
