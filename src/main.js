@@ -11,10 +11,10 @@ Vue.config.productionTip = false
 
 // Vue.use(Vant);
 
-import { Button,Icon,NavBar,Tabbar,TabbarItem,Swipe,SwipeItem,Lazyload,Tab,Tabs,Field,CellGroup,Toast,Cell   } from 'vant';
+import { Button,Icon,NavBar,Tabbar,TabbarItem,Swipe,SwipeItem,Lazyload,Tab,Tabs,Field,CellGroup,Toast,Cell,Col,Row,List,PullRefresh   } from 'vant';
 
 Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload)
-   .use(Tab).use(Tabs).use(Field).use(CellGroup).use(Toast).use(Cell);
+   .use(Tab).use(Tabs).use(Field).use(CellGroup).use(Toast).use(Cell).use(Col).use(Row).use(List).use(PullRefresh);
 
 import '@/mock/mock.js'
 
