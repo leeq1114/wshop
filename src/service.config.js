@@ -7,7 +7,8 @@ const URL = {
     registUser: REALURL + 'user/registUser',
     loginUser: REALURL + 'user/loginUser',
     getTypes: REALURL + 'type/getTypes',
-    getProductsByType: REALURL + 'product/getProductsByType'
+    getProductsByType: REALURL + 'product/getProductsByType',
+    getDetail: REALURL + 'product/getDetail'
 };
 
 export default URL;

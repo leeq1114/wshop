@@ -6,6 +6,8 @@ import Cart from '../views/Cart.vue'
 import Profile from '../views/Profile.vue'
 import Ajax from '../views/Ajax.vue'
 import Profile_loginOK from '../views/Profile_loginOK.vue'
+import Detail from '../views/Detail.vue'
+import FooterBar from '../components/FooterBar.vue'
 
 Vue.use(VueRouter)
 
@@ -13,31 +15,54 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    // component: Home
+    components: {
+      default: Home,
+      'footer-bar': FooterBar
+    }
   },
   {
     path: '/category',
     name: 'category',
-    component: Category
+    // component: Category
+    components: {
+      default: Category,
+      'footer-bar': FooterBar
+    }
   },
   {
     path: '/cart',
     name: 'cart',
-    component: Cart
+    // component: Cart
+    components: {
+      default: Cart,
+      'footer-bar': FooterBar
+    }
   },
   {
     path: '/profile',
     name: 'profile',
-    component: Profile
+    // component: Profile
+    components: {
+      default: Profile,
+      'footer-bar': FooterBar
+    }
   },{
     path: '/ajax',
     name: 'ajax',
     component: Ajax
-  },
-  {
+  },{
     path: '/profile_loginOK',
     name: 'profile_loginOK',
-    component: Profile_loginOK
+    // component: Profile_loginOK
+    components: {
+      default: Profile_loginOK,
+      'footer-bar': FooterBar
+    }
+  },{
+    path: '/detail/:id',
+    name: 'detail',
+    component: Detail
   }
 ]
 

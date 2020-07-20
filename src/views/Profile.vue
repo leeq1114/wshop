@@ -82,7 +82,7 @@ export default {
           // 保存登录状态
           console.log(res.data.userInfo.name);
           this.loginAction(res.data.userInfo.name);
-          this.$router.push("/");
+          this.$router.go(-1);
         } else {
           this.$toast.fail(res.data.message);
         }
