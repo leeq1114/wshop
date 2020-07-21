@@ -12,11 +12,11 @@ Vue.config.productionTip = false
 // Vue.use(Vant);
 
 import { Button,Icon,NavBar,Tabbar,TabbarItem,Swipe,SwipeItem,Lazyload,Tab,Tabs,Field,CellGroup,Toast,Cell,Col,Row,List,PullRefresh
-        ,GoodsAction,GoodsActionIcon,GoodsActionButton } from 'vant';
+        ,GoodsAction,GoodsActionIcon,GoodsActionButton,Card,Tag,SubmitBar } from 'vant';
 
 Vue.use(Button).use(Icon).use(NavBar).use(Tabbar).use(TabbarItem).use(Swipe).use(SwipeItem).use(Lazyload)
    .use(Tab).use(Tabs).use(Field).use(CellGroup).use(Toast).use(Cell).use(Col).use(Row).use(List).use(PullRefresh)
-   .use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton);
+   .use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(Card).use(Tag).use(SubmitBar);
 
 import '@/mock/mock.js'
 

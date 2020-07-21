@@ -5,7 +5,7 @@
       <van-row>
         <van-col span="6" class="nav">
           <ul>
-            <li @click="selectCategory(item.typeId, index)" :class="{active111:active==index}" v-for="(item, index) in types" :key='index'>
+            <li @click="selectCategory(item.typeId, index)" :class="{active:active==index}" v-for="(item, index) in types" :key='index'>
               {{item.typeName}}
             </li>
           </ul>
@@ -55,7 +55,6 @@ export default {
   },
   methods: {
     selectCategory(typeId, index){
-      console.log("selectCategory!");
       this.active = index;
       this.typeId = typeId;
       this.productList = [];
@@ -64,7 +63,6 @@ export default {
       this.getProductList();
     },
     getProductList(){
-      console.log("getProductList!");
       this.isLoading = true;
       axios({
         url: url.getProductsByType,
@@ -90,14 +88,12 @@ export default {
 
     onLoad(){
       setTimeout(()=>{
-        console.log("onLoad!");
         this.getProductList();
       },2000);
     },
 
     onRefresh() {
       setTimeout(() => {
-        console.log("onRefresh!");
         this.productList = [];
         this.getProductList();
       }, 2000);
@@ -126,7 +122,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .nav{
   background-color: #eeeeee;
   li{
@@ -136,7 +132,7 @@ export default {
     border-bottom: 1px solid #ffffff;
     padding: 3px;
   }
-  .active111{
+  .active{
     background-color: #ffffff;
   }
 }

@@ -25,7 +25,7 @@ export default {
   methods: {
     ...mapActions(['loginAction']),
     logoutHandler(){
-      this.loginAction('未登录');
+      this.loginAction({name : '未登录'});
       this.$router.push("/");
     }
   }

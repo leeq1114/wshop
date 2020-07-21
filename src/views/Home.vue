@@ -52,8 +52,8 @@
 <script>
 import 'swiper/swiper.scss'
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
-import axios from 'axios'
-import url from '@/service.config.js'
+// import axios from 'axios'
+// import url from '@/service.config.js'
 import { mapState } from 'vuex'
 
 export default { 
@@ -145,10 +145,10 @@ export default {
   created() {
 
     // let url2 = 'http://www.google.com/getVariety';
-    let url2 = url.getVarietyItem;
-    axios.get(url2).then(res=>{
-      console.log(res);
-    });
+    // let url2 = url.getVarietyItem;
+    // axios.get(url2).then(res=>{
+    //   console.log(res);
+    // });
   },
   computed: {
     ...mapState(['userInfo'])
@@ -157,7 +157,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .container{
   background-color: #eeeeee;

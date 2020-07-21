@@ -80,8 +80,9 @@ export default {
           this.$toast.success(res.data.message);
           this.loginPassword = this.loginUsername = '';
           // 保存登录状态
-          console.log(res.data.userInfo.name);
-          this.loginAction(res.data.userInfo.name);
+          console.log('name: '+res.data.userInfo.name);
+          console.log('id : '+res.data.userInfo.id);
+          this.loginAction(res.data.userInfo);
           this.$router.go(-1);
         } else {
           this.$toast.fail(res.data.message);

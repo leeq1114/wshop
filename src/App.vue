@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <!-- 缓存 -->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
     <!-- <footer-bar></footer-bar> -->
     <router-view name='footer-bar'></router-view>
 
